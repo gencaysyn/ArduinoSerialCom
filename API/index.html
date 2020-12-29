@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $.get( "all", function( data ) {
+            console.log(data);
+            let mainHTML = "";
+            for(let i = 0; i < data.length; i++){
+                mainHTML += sera2html(i, data[i]);
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = mainHTML;
+        });
+        function sera2html(idx, sera){
+            return `
+            <tr>
+                <th scope="row">${idx+1}</th>
+                <td>${sera._id}</td>
+                <td>${sera.name}</td>
+                <td><a href="sera/${sera._id}">Seraya gitmek için tıklayınız</a></td>
+            </tr>`;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div class="h1" align="center">
+            <p>BAŞLIK</p>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-dark">
+
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Sera Adı</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">Link</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--tr>
+                    <th scope="row">1</th>
+                    <td>Sera-1</td>
+                    <td>Gençay Babanın serası</td>
+                    <td><a href="sera">Seraya gitmek için tıklayınız</a></td>
+                </tr>
+               <tr>
+                    <th scope="row">2</th>
+                    <td>Sera-2</td>
+                    <td>Sırrı Babanın serası</td>
+                    <td><a href="sera">Seraya gitmek için tıklayınız</a></td>
+                </tr><tr>
+                    <th scope="row">3</th>
+                    <td>Sera-3</td>
+                    <td>Sırrı Gençay Babanın serası</td>
+                    <td><a href="sera">Seraya gitmek için tıklayınız</a></td>
+                </tr-->
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

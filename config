@@ -1,0 +1,7 @@
+{
+    "sera_name": "Test Sera",
+    "sera_id": "11122020S01",
+    "com_port": "COM3",
+    "baud_rate": 9600,
+    "host_address": "localhost:3000"
+}

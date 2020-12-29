@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sera1</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="card col-md-4" style="width:500px">
+
+          <div class="card-img-overlay">
+              <div class="card bg-warning">
+                <div class="card-body text-center">
+                  <p class="card-text font-weight-bold display-1"><h1> {{ temp }}</h1></p>
+                </div>
+              </div>
+            <h4 class="card-title">{{ id }}</h4>
+            <p class="card-text">{{ name }} </p>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="inputArea" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary col-md-5" type="button" onclick="submit()" id="button-addon2">Button</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function submit(){
+        let input = $("#inputArea")[0].value;
+        console.log(input);
+        $.ajax({
+            url: document.location.origin + '/put/{{ id }}',
+            type: 'PUT',
+            contentType: "application/json",
+            data: JSON.stringify({
+                set_point: input
+            }),
+            success: function(result) {
+                // Do something with the result
+            }
+        });
+
+    }
+</script>
+</body>
+</html>
